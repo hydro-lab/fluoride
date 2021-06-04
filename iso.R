@@ -6,7 +6,7 @@ for (i in 1:nrow(x)) {
   x$C[i] <- (x$`C 1`[i] + x$`C 2`[i] + x$`C 3`[i])/3 # averages the three measurements of each trial; assumes mg/l
 }
 
-vol <- 0.05 # ml, volume of reactor
+vol <- 0.05 # l, volume of reactor, 50 ml.
 
 m <- vol * x$C # mg, calculates the mass remaining in solution in each reactor
 control.mass <- m[1] # assumes that the first line is the control
@@ -18,4 +18,4 @@ for (i in 2:nrow(x)) {
 
 Cstar <- sorbed.mass/x$`FeSO4 (g)`
 
-plot(x$C, Cstar)
+plot(x$C, Cstar, xlab = "C (mg/l)", ylab = "C* (mg/g)")
